@@ -800,6 +800,20 @@
 
 <!-- Interactive Scripts -->
 <script>
+    // Fix: prevent mobile browsers from restoring last scroll position
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    // Remove any URL hash that could trigger anchor auto-scroll
+    if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    // Force scroll to very top immediately on load
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    window.addEventListener('load', () => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    });
+
     document.addEventListener("DOMContentLoaded", () => {
         // --- 1. Typing effect for hero text ---
         const typingSpan = document.getElementById("typing-span");
