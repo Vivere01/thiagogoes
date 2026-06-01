@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>GOES ADVOCACIA | Defesa Criminal Estratégica</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS with custom theme -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#5d5e5f",
+                        "primary": "#dcdcdc",
+                        "tertiary-container": "#c0bfc4",
+                        "surface-variant": "#353534",
+                        "secondary-container": "#474746",
+                        "on-secondary-fixed-variant": "#474746",
+                        "outline-variant": "#444748",
+                        "primary-container": "#c0c0c0",
+                        "on-primary": "#2f3131",
+                        "surface-tint": "#c6c6c6",
+                        "on-tertiary-container": "#4d4e52",
+                        "tertiary-fixed": "#e3e2e7",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-container": "#b7b5b4",
+                        "inverse-on-surface": "#313030",
+                        "inverse-surface": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed-dim": "#c6c6cb",
+                        "on-tertiary": "#2f3034",
+                        "primary-fixed": "#e3e2e2",
+                        "on-primary-container": "#4d4e4f",
+                        "on-surface": "#e5e2e1",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#46464b",
+                        "on-secondary": "#313030",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#c4c7c7",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#464747",
+                        "tertiary": "#dcdbe0",
+                        "secondary": "#c8c6c5",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-tertiary-fixed": "#1a1b1f",
+                        "surface-container": "#201f1f",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "outline": "#8e9192",
+                        "background": "#131313",
+                        "surface-container-low": "#1c1b1b",
+                        "surface": "#131313",
+                        "surface-bright": "#3a3939",
+                        "on-primary-fixed": "#1a1c1c",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "120px",
+                        "gutter": "32px",
+                        "container-max": "1200px",
+                        "unit": "8px",
+                        "margin-mobile": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Libre Caslon Text"],
+                        "body-lg": ["Manrope"],
+                        "title-md": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display-lg": ["Libre Caslon Text"],
+                        "headline-lg-mobile": ["Libre Caslon Text"],
+                        "label-caps": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom animations and utility styles -->
+    <style>
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(192, 192, 192, 0.15);
+        }
+        .btn-primary {
+            background-color: theme('colors.primary');
+            color: theme('colors.on-primary');
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(145deg, #dcdcdc, #a0a0a0);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .btn-secondary {
+            border: 1px solid theme('colors.primary');
+            color: theme('colors.primary');
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(220, 220, 220, 0.1);
+        }
+        .metallic-text {
+            background: linear-gradient(to right, #dcdcdc, #8e9192, #dcdcdc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .card-hover {
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            border-color: rgba(192, 192, 192, 0.35);
+        }
+        .separator-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(192, 192, 192, 0.2), transparent);
+        }
+
+        /* Scroll reveal custom style */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typing animation styling */
+        .typing-cursor::after {
+            content: '|';
+            position: absolute;
+            color: theme('colors.primary');
+            animation: blink 0.8s infinite;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary selection:text-on-primary">
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/556199981222?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20jurídica%20com%20o%20Dr.%20Thiago." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group focus:outline-none" aria-label="Fale Conosco pelo WhatsApp">
+    <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping -z-10 group-hover:hidden"></span>
+    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.99L2 22l5.188-1.358a9.95 9.95 0 0 0 4.822 1.238h.005c5.507 0 9.99-4.478 9.99-9.985C22.007 6.478 17.52 2 12.012 2zm0 18.29h-.003a8.27 8.27 0 0 1-4.225-1.155l-.303-.18-3.142.82.836-3.057-.198-.313A8.27 8.27 0 0 1 3.73 11.99c0-4.56 3.712-8.27 8.283-8.27 4.568 0 8.28 3.71 8.282 8.27 0 4.562-3.717 8.27-8.283 8.27zm4.536-6.19c-.248-.124-1.47-.724-1.696-.807-.228-.083-.393-.124-.559.124-.166.248-.641.807-.786.973-.146.166-.29.186-.539.062-.25-.124-1.05-.387-2.001-1.234-.74-.66-1.24-1.474-1.385-1.723-.145-.248-.015-.383.11-.507.112-.112.248-.29.372-.434.124-.145.166-.248.248-.414.083-.166.042-.31-.02-.434-.063-.124-.559-1.347-.767-1.848-.2-.487-.403-.42-.559-.428-.146-.008-.31-.008-.476-.008a.916.916 0 0 0-.663.31c-.228.248-.87.85-.87 2.07 0 1.22.89 2.4.99 2.545.099.145 1.75 2.673 4.24 3.748.59.256 1.053.409 1.41.522.6.19 1.144.163 1.574.099.48-.072 1.47-.6 1.677-1.18.207-.58.207-1.077.145-1.18-.063-.104-.228-.166-.476-.29z"/>
+    </svg>
+</a>
+
+<!-- Mobile Drawer Menu (Slide-in) -->
+<div id="mobile-drawer" class="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl border-l border-outline-variant/20 transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
+    <button id="mobile-drawer-close" class="absolute top-8 right-8 text-primary" aria-label="Fechar menu">
+        <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    <a class="mobile-nav-link text-2xl text-primary font-title-md uppercase tracking-widest hover:text-white transition-colors" href="#inicio">Início</a>
+    <a class="mobile-nav-link text-2xl text-secondary font-title-md uppercase tracking-widest hover:text-primary transition-colors" href="#atuacao">Áreas de Atuação</a>
+    <a class="mobile-nav-link text-2xl text-secondary font-title-md uppercase tracking-widest hover:text-primary transition-colors" href="#equipe">Equipe</a>
+    <a class="mobile-nav-link text-2xl text-secondary font-title-md uppercase tracking-widest hover:text-primary transition-colors" href="#casos">Casos de Sucesso</a>
+    <a class="mobile-nav-link text-2xl text-secondary font-title-md uppercase tracking-widest hover:text-primary transition-colors" href="#contato">Contato</a>
+    <a class="btn-primary font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest mt-8" href="#contato">CONSULTA IMEDIATA</a>
+</div>
+
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-30 bg-background/90 backdrop-blur-xl border-b border-outline-variant/20">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter py-unit h-24">
+        <div class="flex items-center gap-4">
+            <img alt="Logo Goes Advocacia" class="h-12 w-auto object-contain brightness-200 contrast-125 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzQQ4TU6rKCv6W6sL7ual4NoRNDEJ9kOVS9ZLwbRBspfnh67D4GN6qMC9iAqnyQYzWtalQ3xu7CstzsasQmrGKv8BSxtjezL2nF6WoCokK_NPJ-8id5lpHi-I4NbRL0E6tw6CXUXiFBEjjB5TnfrKe2jrGtYQadGpUPsdbzQH9WGUf-8ead4EwHRsObBqxMiaOG-tM7hQ3thJG0QZJYzMU0RcvDqG-s1zfZlkAZxcxVjP-rThakqi6RAHEb_24UqHCJ8fAyiOpb1s"/>
+        </div>
+        <nav class="hidden md:flex gap-8 items-center font-body-md text-body-md uppercase tracking-widest">
+            <a class="nav-link text-primary border-b border-primary pb-1" href="#inicio">Início</a>
+            <a class="nav-link text-secondary hover:text-primary transition-all duration-300" href="#atuacao">Áreas de Atuação</a>
+            <a class="nav-link text-secondary hover:text-primary transition-all duration-300" href="#equipe">Equipe</a>
+            <a class="nav-link text-secondary hover:text-primary transition-all duration-300" href="#casos">Casos de Sucesso</a>
+            <a class="nav-link text-secondary hover:text-primary transition-all duration-300" href="#contato">Contato</a>
+        </nav>
+        <a class="hidden md:flex btn-secondary font-label-caps text-label-caps px-6 py-3 uppercase tracking-widest" href="#contato">CONSULTA IMEDIATA</a>
+        <button id="mobile-menu-btn" class="md:hidden text-primary" aria-label="Abrir menu">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden" id="inicio">
+        <!-- Background dark gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 h-full w-full md:w-3/5">
+            <img alt="Thiago Goes" class="w-full h-full object-cover object-center grayscale opacity-80 mix-blend-luminosity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK8lVJEiORnOuxVlQ-HcCW9Zg4OcEjIX3FoGEnQr2spZM9rN2rjTpY7q4XKJVsneE1UxO2Fx5SuzINLTXQmSlfdBUf5UeiHwZDE3yGGe4c5tH2JgMZW6g2JYfkmwY29wM3HK7gCDVk1MDgqTSkitjToarKF9nsxFTEglsAPtBRGRUdvdIyT8goSSMMpWCVmaijKUCKURV52BfeWDW75guhiFQTNMsM-7pRLoGQA8YsrIKjXFXE0Aou-Xphc3DL4ljz-h705e_SjyA"/>
+            <div class="absolute inset-0 bg-gradient-to-l from-transparent to-background"></div>
+        </div>
+        <div class="relative z-20 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding">
+            <div class="max-w-2xl">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-px bg-primary"></div>
+                    <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Advocacia Criminal de Alta Complexidade</span>
+                </div>
+                <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-8">
+                    Defesa Estratégica.<br/>
+                    <span id="typing-span" class="metallic-text relative typing-cursor">Discrição Absoluta.</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-lg">
+                    Protegendo reputações e liberdades em cenários de alta pressão. Atuação técnica, incisiva e implacável no Direito Penal e Penal Empresarial.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a class="btn-primary font-label-caps text-label-caps px-8 py-4 uppercase text-center inline-flex items-center justify-center gap-2" href="#contato">
+                        Agendar Sigilosamente
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                    <a class="btn-secondary font-label-caps text-label-caps px-8 py-4 uppercase text-center flex items-center justify-center" href="#atuacao">
+                        Conhecer Expertise
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A Defesa Implacável -->
+    <section class="py-section-padding bg-surface-container-lowest relative overflow-hidden">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1 glass-panel p-8 md:p-12 reveal">
+                    <span class="font-label-caps text-label-caps text-outline mb-4 block">Filosofia de Atuação</span>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8">A Defesa Implacável</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                        A justiça não é um conceito passivo; ela exige ser forjada através de uma defesa que não recua. No escritório Goes Advocacia, compreendemos que o peso do Estado deve ser contrabalançado por uma representação técnica formidável e inabalável.
+                    </p>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Nossa abordagem é baseada na antecipação cirúrgica dos movimentos da acusação, construindo teses defensivas sólidas que protegem não apenas a liberdade, mas o patrimônio e o legado de nossos constituintes.
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-outline-variant/30 pt-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">gavel</span>
+                        <span class="font-title-md text-title-md text-on-surface">Compromisso com o devido processo legal.</span>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 relative h-[500px] md:h-[700px] reveal">
+                    <img alt="Estátua da Justiça" class="w-full h-full object-cover grayscale opacity-90 rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjUFfGkHwjsZxML3j0hrKXfSeqodMiIvBED5jyFK2Ia8YvtF3GDdZJi4lt63HNbLABR2E8t4yxy8w0RCbhKVYG7SZu95swsRMVYfSy2b82UOSSg2Yz6j5s-Pllg2zIZ551JrM25DnwdOxG2KuSCDemkko5W8yhD5PpsqXXIDG1UfBlW-WwKtfRBXF_RU0BL_gFcqpKPxQfDJKGp8rYDn1q1LwGEM9Jc7EM5Dxbw3P_di_WHGS-xB6OTqMi7hGM7Q3I60RZ8Tdx9a8"/>
+                    <div class="absolute inset-0 ring-1 ring-inset ring-outline-variant/20 rounded-sm"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excelência e Detalhe -->
+    <section class="py-section-padding bg-background relative overflow-hidden">
+        <!-- Decorative abstract element -->
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-surface-variant/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="relative h-[400px] md:h-[600px] w-full reveal">
+                    <img alt="Caneta de luxo sobre documentos legais" class="w-full h-full object-cover grayscale brightness-75 rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHPjEdPr40eFUemB0IGbC7X64892mZRyv07wCr_V4bu5I3StGC_gYm8FmTBbGTjTH-nL3n_C0I1U0WU0RbaoyVEAG3AUbFGm5AdixlaM9S_p607xkgXtmY3FM9gOPdl9US8HM3eyU7qT8zk8HmIuOadyjph3eNgo96UbOiLruezmhldj6fymjrAmYMG2dCVebarUbsPxfmGA4TmylH6sJ3gSLh8whrURUsT28wBYbhtuXqmUCR6cosk8I_T0h4IfdR8F3hxXtR2A8"/>
+                    <!-- Glassmorphism overlay card -->
+                    <div class="absolute -bottom-10 -right-10 w-2/3 glass-panel p-8 hidden md:block">
+                        <p class="font-headline-lg text-headline-lg text-primary italic">"A vitória reside na margem estreita do detalhe ignorado."</p>
+                    </div>
+                </div>
+                <div class="md:pl-12 reveal">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="material-symbols-outlined text-primary">history_edu</span>
+                        <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Precisão Técnica</span>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8">Excelência &amp; Detalhe</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="font-title-md text-title-md text-on-surface mb-2">Análise Documental Exaustiva</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Cada laudo, depoimento e prova técnica é dissecado. A verdade processual é construída através da reconstrução minuciosa dos fatos.</p>
+                        </div>
+                        <div class="separator-line"></div>
+                        <div>
+                            <h3 class="font-title-md text-title-md text-on-surface mb-2">Estratégia Personalizada</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Não utilizamos fórmulas prontas. Cada caso exige uma arquitetura defensiva única, desenhada especificamente para o contexto do cliente.</p>
+                        </div>
+                        <div class="separator-line"></div>
+                        <div>
+                            <h3 class="font-title-md text-title-md text-on-surface mb-2">Sigilo Operacional</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Protocolos estritos de confidencialidade garantem que a exposição da imagem do cliente seja minimizada em todas as fases do processo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação (Bento Grid Style) -->
+    <section class="py-section-padding bg-surface-container-lowest" id="atuacao">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+            <div class="text-center mb-20 reveal">
+                <span class="font-label-caps text-label-caps text-outline mb-4 block tracking-[0.2em] uppercase">Especialidades</span>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Domínios de Atuação</h2>
+                <div class="w-24 h-px bg-primary mx-auto mt-8"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px] reveal">
+                <!-- Bento Item 1: Large -->
+                <div class="md:col-span-2 glass-panel p-8 card-hover flex flex-col justify-end relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
+                    <img alt="Background Crimes Colarinho Branco" class="absolute inset-0 w-full h-full object-cover grayscale opacity-20 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjUFfGkHwjsZxML3j0hrKXfSeqodMiIvBED5jyFK2Ia8YvtF3GDdZJi4lt63HNbLABR2E8t4yxy8w0RCbhKVYG7SZu95swsRMVYfSy2b82UOSSg2Yz6j5s-Pllg2zIZ551JrM25DnwdOxG2KuSCDemkko5W8yhD5PpsqXXIDG1UfBlW-WwKtfRBXF_RU0BL_gFcqpKPxQfDJKGp8rYDn1q1LwGEM9Jc7EM5Dxbw3P_di_WHGS-xB6OTqMi7hGM7Q3I60RZ8Tdx9a8"/>
+                    <div class="relative z-20">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4">account_balance</span>
+                        <h3 class="font-headline-lg text-headline-lg-mobile md:text-[32px] text-on-surface mb-3 leading-tight">Crimes de Colarinho Branco</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-lg">Defesa especializada em crimes financeiros, tributários, lavagem de dinheiro e infrações contra a ordem econômica. Atuação perante Tribunais Superiores.</p>
+                    </div>
+                </div>
+                <!-- Bento Item 2: Standard -->
+                <div class="glass-panel p-8 card-hover flex flex-col justify-between">
+                    <span class="material-symbols-outlined text-outline text-3xl">balance</span>
+                    <div>
+                        <h3 class="font-title-md text-title-md text-on-surface mb-3">Direito Penal Clássico</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Assistência em inquéritos policiais e defesa em ações penais de alta complexidade.</p>
+                    </div>
+                </div>
+                <!-- Bento Item 3: Standard -->
+                <div class="glass-panel p-8 card-hover flex flex-col justify-between">
+                    <span class="material-symbols-outlined text-outline text-3xl">groups</span>
+                    <div>
+                        <h3 class="font-title-md text-title-md text-on-surface mb-3">Tribunal do Júri</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Atuação combativa e oratória persuasiva no plenário para crimes dolosos contra a vida.</p>
+                    </div>
+                </div>
+                <!-- Bento Item 4: Large Horizontal -->
+                <div class="md:col-span-2 glass-panel p-8 card-hover flex flex-col justify-between relative overflow-hidden group">
+                    <div class="flex justify-between items-start z-20 relative">
+                        <span class="material-symbols-outlined text-primary text-4xl">shield</span>
+                        <a class="text-primary hover:text-white transition-colors" href="#contato" aria-label="Saiba mais">
+                            <span class="material-symbols-outlined">arrow_outward</span>
+                        </a>
+                    </div>
+                    <div class="z-20 relative mt-8">
+                        <h3 class="font-headline-lg text-headline-lg-mobile md:text-[32px] text-on-surface mb-3 leading-tight">Consultoria Estratégica &amp; Compliance</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Prevenção de riscos penais corporativos através da estruturação de programas de conformidade robustos e investigações internas sigilosas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipe Section -->
+    <section id="equipe" class="py-section-padding bg-background relative overflow-hidden">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
+            <div class="text-center mb-20 reveal">
+                <span class="font-label-caps text-label-caps text-outline mb-4 block tracking-[0.2em] uppercase">Sócio Fundador</span>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Defesa de Elite</h2>
+                <div class="w-24 h-px bg-primary mx-auto mt-8"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="reveal relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary to-outline opacity-25 blur transition duration-1000 group-hover:opacity-40"></div>
+                    <div class="relative bg-surface-container-low p-6 rounded-sm border border-outline-variant/30">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK8lVJEiORnOuxVlQ-HcCW9Zg4OcEjIX3FoGEnQr2spZM9rN2rjTpY7q4XKJVsneE1UxO2Fx5SuzINLTXQmSlfdBUf5UeiHwZDE3yGGe4c5tH2JgMZW6g2JYfkmwY29wM3HK7gCDVk1MDgqTSkitjToarKF9nsxFTEglsAPtBRGRUdvdIyT8goSSMMpWCVmaijKUCKURV52BfeWDW75guhiFQTNMsM-7pRLoGQA8YsrIKjXFXE0Aou-Xphc3DL4ljz-h705e_SjyA" alt="Dr. Thiago Goes" class="w-full h-[450px] object-cover grayscale brightness-90 contrast-110 object-center rounded-sm">
+                    </div>
+                </div>
+                
+                <div class="reveal space-y-6">
+                    <h3 class="font-display-lg text-4xl text-on-surface">Dr. Thiago Goes</h3>
+                    <p class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Fundador &amp; Advogado Criminalista</p>
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Com ampla formação acadêmica e sólida experiência em litígios de alta complexidade, o Dr. Thiago Goes lidera o escritório com foco em soluções jurídicas personalizadas e discrição máxima. Especialista em Direito Penal e Processual Penal, atua ativamente na defesa de garantias constitucionais junto aos Tribunais de Justiça do país e às Cortes Superiores (STJ e STF).
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                        <div class="glass-panel p-4 rounded-sm border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-primary text-2xl mb-2">school</span>
+                            <h4 class="font-title-md text-sm text-on-surface font-semibold mb-1">Pedigree Acadêmico</h4>
+                            <p class="text-xs text-on-surface-variant">Especialista em Direito Penal Econômico e Processo Penal Estratégico.</p>
+                        </div>
+                        <div class="glass-panel p-4 rounded-sm border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-primary text-2xl mb-2">verified</span>
+                            <h4 class="font-title-md text-sm text-on-surface font-semibold mb-1">Registro Profissional</h4>
+                            <p class="text-xs text-on-surface-variant">Inscrição nos quadros da OAB sob o número OAB/DF 79.194.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casos de Sucesso Section -->
+    <section id="casos" class="py-section-padding bg-surface-container-lowest relative">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+            <div class="text-center mb-20 reveal">
+                <span class="font-label-caps text-label-caps text-outline mb-4 block tracking-[0.2em] uppercase">Resultados Sólidos</span>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Casos de Sucesso</h2>
+                <div class="w-24 h-px bg-primary mx-auto mt-8"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Caso 1 -->
+                <div class="glass-panel p-8 rounded-sm card-hover reveal flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="material-symbols-outlined text-primary text-4xl">gavel</span>
+                            <span class="text-xs font-label-caps text-outline tracking-wider">JÚRI POPULAR</span>
+                        </div>
+                        <h3 class="font-title-md text-title-md text-on-surface mb-4">Absolvição em Crime Complexo</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
+                            Atuação em plenário do Tribunal do Júri resultando na absolvição unânime do cliente acusado de crime doloso contra a vida, fundamentando-se na legítima defesa e exclusão de ilicitude.
+                        </p>
+                    </div>
+                    <div class="border-t border-outline-variant/20 pt-4 mt-6">
+                        <span class="text-xs text-primary font-semibold uppercase tracking-widest">Resultado: Absolvição Completa</span>
+                    </div>
+                </div>
+                
+                <!-- Caso 2 -->
+                <div class="glass-panel p-8 rounded-sm card-hover reveal flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="material-symbols-outlined text-primary text-4xl">account_balance_wallet</span>
+                            <span class="text-xs font-label-caps text-outline tracking-wider">DIREITO PENAL ECONÔMICO</span>
+                        </div>
+                        <h3 class="font-title-md text-title-md text-on-surface mb-4">Trancamento de Ação Penal</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
+                            Impetração de Habeas Corpus bem-sucedido perante o Tribunal Regional Federal, resultando no trancamento definitivo de ação penal por crime tributário e evasão de divisas devido à atipicidade de conduta.
+                        </p>
+                    </div>
+                    <div class="border-t border-outline-variant/20 pt-4 mt-6">
+                        <span class="text-xs text-primary font-semibold uppercase tracking-widest">Resultado: Ação Penal Trancada</span>
+                    </div>
+                </div>
+                
+                <!-- Caso 3 -->
+                <div class="glass-panel p-8 rounded-sm card-hover reveal flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="material-symbols-outlined text-primary text-4xl">lock</span>
+                            <span class="text-xs font-label-caps text-outline tracking-wider">CUSTÓDIA E LIBERDADE</span>
+                        </div>
+                        <h3 class="font-title-md text-title-md text-on-surface mb-4">Revogação de Prisão Preventiva</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
+                            Atuação estratégica em sede de audiência de custódia e posterior impetração de Habeas Corpus, revertendo decreto prisional preventivo de empresário investigado em operação policial.
+                        </p>
+                    </div>
+                    <div class="border-t border-outline-variant/20 pt-4 mt-6">
+                        <span class="text-xs text-primary font-semibold uppercase tracking-widest">Resultado: Liberdade Restabelecida</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center reveal">
+                <p class="text-xs text-outline italic">
+                    *Em conformidade com o Código de Ética e Disciplina da OAB, os dados específicos dos processos e das partes são mantidos em absoluto sigilo profissional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-section-padding bg-background relative overflow-hidden">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="reveal space-y-8">
+                    <div>
+                        <span class="font-label-caps text-label-caps text-primary mb-4 block tracking-[0.2em] uppercase">Consulta Sigilosa</span>
+                        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Agende Seu Atendimento</h2>
+                        <div class="w-16 h-px bg-primary mt-6"></div>
+                    </div>
+                    
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Garantimos confidencialidade total e resposta prioritária. Preencha o formulário seguro abaixo ou entre em contato direto pelo nosso canal telefônico de plantão 24h.
+                    </p>
+                    
+                    <div class="space-y-6 pt-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center border border-primary/20">
+                                <span class="material-symbols-outlined text-primary text-xl">phone_in_talk</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-outline uppercase tracking-wider">Plantão de Urgência 24h</p>
+                                <a href="tel:+556199981222" class="font-title-md text-on-surface hover:text-primary transition-colors">+55 61 9998-1222</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center border border-primary/20">
+                                <span class="material-symbols-outlined text-primary text-xl">mail</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-outline uppercase tracking-wider">E-mail Seguro</p>
+                                <a href="mailto:contato@goesadvocacia.com.br" class="font-title-md text-on-surface hover:text-primary transition-colors">contato@goesadvocacia.com.br</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center border border-primary/20">
+                                <span class="material-symbols-outlined text-primary text-xl">location_on</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-outline uppercase tracking-wider">Endereço Principal</p>
+                                <p class="font-title-md text-on-surface text-base">Setor de Autarquias Sul, Quadra 4, Bloco A - Brasília/DF</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal glass-panel p-8 md:p-10 rounded-sm border border-outline-variant/30">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-xs font-label-caps text-outline uppercase tracking-wider mb-2">Nome Completo</label>
+                            <input type="text" id="name" required class="w-full bg-surface-container-low border border-outline-variant/30 text-on-surface rounded-sm px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/25 transition-all">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-xs font-label-caps text-outline uppercase tracking-wider mb-2">E-mail Confidencial</label>
+                            <input type="email" id="email" required class="w-full bg-surface-container-low border border-outline-variant/30 text-on-surface rounded-sm px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/25 transition-all">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-xs font-label-caps text-outline uppercase tracking-wider mb-2">Telefone/WhatsApp</label>
+                            <input type="tel" id="phone" required class="w-full bg-surface-container-low border border-outline-variant/30 text-on-surface rounded-sm px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/25 transition-all">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-xs font-label-caps text-outline uppercase tracking-wider mb-2">Mensagem (Resumo Breve)</label>
+                            <textarea id="message" rows="4" required class="w-full bg-surface-container-low border border-outline-variant/30 text-on-surface rounded-sm px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/25 transition-all resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary font-label-caps text-label-caps py-4 uppercase tracking-widest text-center flex items-center justify-center gap-2">
+                            Enviar Solicitação
+                            <span class="material-symbols-outlined text-sm">send</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer Component -->
+<footer class="bg-surface-container-lowest w-full py-section-padding border-t border-outline-variant/10">
+    <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
+        <div class="flex flex-col items-start space-y-6">
+            <img alt="Logo Goes Advocacia" class="h-16 w-auto object-contain brightness-200 grayscale opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzQQ4TU6rKCv6W6sL7ual4NoRNDEJ9kOVS9ZLwbRBspfnh67D4GN6qMC9iAqnyQYzWtalQ3xu7CstzsasQmrGKv8BSxtjezL2nF6WoCokK_NPJ-8id5lpHi-I4NbRL0E6tw6CXUXiFBEjjB5TnfrKe2jrGtYQadGpUPsdbzQH9WGUf-8ead4EwHRsObBqxMiaOG-tM7hQ3thJG0QZJYzMU0RcvDqG-s1zfZlkAZxcxVjP-rThakqi6RAHEb_24UqHCJ8fAyiOpb1s"/>
+            <p class="font-body-md text-body-md text-on-surface-variant">Advocacia Criminal de Resultado.<br/>Discreção. Técnica. Resiliência.</p>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <span class="font-label-caps text-label-caps text-outline tracking-widest uppercase mb-2">Especialidades</span>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#atuacao">Defesa em Crimes Brancos</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#atuacao">Tribunal do Júri</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#atuacao">Extradição</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#atuacao">Compliance</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#atuacao">Privacidade</a>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <span class="font-label-caps text-label-caps text-outline tracking-widest uppercase mb-2">Contato Urgente</span>
+            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">mail</span>
+                contato@goesadvocacia.com.br
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">phone_iphone</span>
+                Plantão 24h
+            </p>
+            <a class="mt-4 btn-primary font-label-caps text-label-caps px-6 py-3 uppercase text-center inline-block max-w-max" href="#contato">Solicitar Contato</a>
+        </div>
+    </div>
+    <div class="max-w-container-max mx-auto px-gutter mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body-md text-[14px] text-on-surface-variant">© 2026 GOES ADVOCACIA CRIMINAL. TODOS OS DIREITOS RESERVADOS. OAB DF 79.194.</p>
+        <div class="flex gap-4 items-center">
+            <!-- Instagram Icon Link -->
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="https://www.instagram.com/advthigoes/" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Instagram">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                </svg>
+            </a>
+            <!-- Gavel Icon Link -->
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#inicio" aria-label="Ir para o topo">
+                <span class="material-symbols-outlined">gavel</span>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- Interactive Scripts -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. Typing effect for hero text ---
+        const typingSpan = document.getElementById("typing-span");
+        const targetText = "Discrição Absoluta.";
+        let index = 0;
+        typingSpan.textContent = "";
+        typingSpan.classList.add("typing-cursor");
+
+        function type() {
+            if (index < targetText.length) {
+                typingSpan.textContent += targetText.charAt(index);
+                index++;
+                setTimeout(type, 110);
+            } else {
+                setTimeout(() => {
+                    typingSpan.classList.remove("typing-cursor");
+                }, 2000);
+            }
+        }
+        // Start typing after short delay for page load look
+        setTimeout(type, 600);
+
+        // --- 2. Mobile Drawer Navigation ---
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileDrawer = document.getElementById("mobile-drawer");
+        const mobileDrawerClose = document.getElementById("mobile-drawer-close");
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+        function openDrawer() {
+            mobileDrawer.classList.remove("translate-x-full");
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.add("translate-x-full");
+        }
+
+        mobileMenuBtn.addEventListener("click", openDrawer);
+        mobileDrawerClose.addEventListener("click", closeDrawer);
+        mobileNavLinks.forEach(link => {
+            link.addEventListener("click", closeDrawer);
+        });
+
+        // --- 3. Scroll Reveal Animations using Intersection Observer ---
+        const revealElements = document.querySelectorAll(".reveal");
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // --- 4. Navigation Links Active State ---
+        const navLinks = document.querySelectorAll(".nav-link");
+        const sections = document.querySelectorAll("section");
+
+        function makeNavActive() {
+            let index = sections.length;
+
+            while(--index && window.scrollY + 150 < sections[index].offsetTop) {}
+            
+            navLinks.forEach((link) => link.classList.remove("text-primary", "border-b", "border-primary", "pb-1"));
+            navLinks.forEach((link) => link.classList.add("text-secondary"));
+            
+            if(navLinks[index]) {
+                navLinks[index].classList.remove("text-secondary");
+                navLinks[index].classList.add("text-primary", "border-b", "border-primary", "pb-1");
+            }
+        }
+
+        window.addEventListener("scroll", makeNavActive);
+        makeNavActive();
+
+        // --- 5. Form Handling (Premium UX) ---
+        const contactForm = document.getElementById("contact-form");
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const submitBtn = contactForm.querySelector("button[type='submit']");
+            const originalContent = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <span>Processando...</span>
+                <span class="material-symbols-outlined animate-spin text-sm">progress_activity</span>
+            `;
+
+            // Simulate encrypted transmission
+            setTimeout(() => {
+                submitBtn.classList.remove("btn-primary");
+                submitBtn.classList.add("bg-emerald-600", "text-white");
+                submitBtn.innerHTML = `
+                    <span>Solicitação Enviada</span>
+                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                `;
+                
+                alert("Sua solicitação de atendimento confidencial foi transmitida com sucesso. O Dr. Thiago Goes ou seu plantão retornará o contato com a máxima discrição.");
+                contactForm.reset();
+
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove("bg-emerald-600", "text-white");
+                    submitBtn.classList.add("btn-primary");
+                    submitBtn.innerHTML = originalContent;
+                }, 4000);
+            }, 1800);
+        });
+    });
+</script>
+
+</body>
+</html>
