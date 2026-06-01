@@ -168,6 +168,78 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
+
+        /* Marquee Ticker Bar */
+        .ticker-wrapper {
+            overflow: hidden;
+            position: relative;
+            background: #0e0e0e;
+            border-top: 1px solid rgba(192, 192, 192, 0.08);
+            border-bottom: 1px solid rgba(192, 192, 192, 0.08);
+            padding: 14px 0;
+        }
+        .ticker-wrapper::before,
+        .ticker-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .ticker-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #0e0e0e, transparent);
+        }
+        .ticker-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #0e0e0e, transparent);
+        }
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker-scroll 38s linear infinite;
+            will-change: transform;
+        }
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 40px;
+            white-space: nowrap;
+            font-family: 'Manrope', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(196, 199, 199, 0.55);
+            transition: color 0.3s ease;
+        }
+        .ticker-item:hover {
+            color: rgba(220, 220, 220, 0.9);
+        }
+        .ticker-item .ticker-icon {
+            font-size: 14px;
+            color: rgba(142, 145, 146, 0.5);
+            transition: color 0.3s ease;
+        }
+        .ticker-item:hover .ticker-icon {
+            color: rgba(220, 220, 220, 0.8);
+        }
+        .ticker-sep {
+            color: rgba(142, 145, 146, 0.2);
+            font-size: 16px;
+            font-weight: 300;
+            align-self: center;
+        }
+        @keyframes ticker-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-primary selection:text-on-primary">
@@ -247,6 +319,114 @@
             </div>
         </div>
     </section>
+
+    <!-- Marquee Ticker Bar -->
+    <div class="ticker-wrapper" aria-hidden="true">
+        <div class="ticker-track">
+            <!-- First set -->
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">shield</span>
+                Direito Criminal
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">schedule</span>
+                Atendimento 24h
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">lock</span>
+                Sigilo Absoluto
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">gavel</span>
+                Direito Cível
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">account_balance</span>
+                Atuação Nacional
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">family_restroom</span>
+                Família &amp; Sucessões
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">groups</span>
+                Tribunal do Júri
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">verified_user</span>
+                Compliance &amp; Conformidade
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">balance</span>
+                Habeas Corpus
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">business_center</span>
+                Crimes Financeiros
+            </div>
+            <span class="ticker-sep">·</span>
+            <!-- Duplicated set for seamless loop -->
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">shield</span>
+                Direito Criminal
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">schedule</span>
+                Atendimento 24h
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">lock</span>
+                Sigilo Absoluto
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">gavel</span>
+                Direito Cível
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">account_balance</span>
+                Atuação Nacional
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">family_restroom</span>
+                Família &amp; Sucessões
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">groups</span>
+                Tribunal do Júri
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">verified_user</span>
+                Compliance &amp; Conformidade
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">balance</span>
+                Habeas Corpus
+            </div>
+            <span class="ticker-sep">·</span>
+            <div class="ticker-item">
+                <span class="material-symbols-outlined ticker-icon" style="font-size:15px;font-variation-settings:'FILL' 0,'wght' 300">business_center</span>
+                Crimes Financeiros
+            </div>
+            <span class="ticker-sep">·</span>
+        </div>
+    </div>
 
     <!-- A Defesa Implacável -->
     <section class="py-section-padding bg-surface-container-lowest relative overflow-hidden">
